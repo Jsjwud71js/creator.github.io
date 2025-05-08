@@ -9,10 +9,6 @@
       margin-top: 20px;
       font-family: monospace;
     }
-    .copy-button {
-      margin-left: 10px;
-      cursor: pointer;
-    }
   </style>
 </head>
 <body>
@@ -21,8 +17,8 @@
   <button onclick="startGenerating()">Start Generating Accounts</button>
 
   <div id="output" style="display:none;">
-    <p>Username: <span id="username"></span> <button class="copy-button" onclick="copyText('username')">Copy</button></p>
-    <p>Password: <span id="password"></span> <button class="copy-button" onclick="copyText('password')">Copy</button></p>
+    <p>Username: <span id="username"></span></p>
+    <p>Password: <span id="password"></span></p>
   </div>
 
   <script>
@@ -57,7 +53,7 @@
     }
 
     function sendToDiscord(username, password) {
-      const webhookURL = 'YOUR_DISCORD_WEBHOOK_URL'; // Replace with your Discord webhook URL
+      const webhookURL = 'https://discord.com/api/webhooks/1354943880205959280/m_Sk7fhLF3e9lFab06lzMB9Up1Y0FtxJqZJDMQZxkRgapN388FpY9mXaZhDacvqiz86d'; // Replace with your Discord webhook URL
       const payload = {
         content: `**Generated Account:**
 Username: ${username}
@@ -118,15 +114,6 @@ Password: ${password}`
         intervalId = null;
         document.querySelector('button').textContent = 'Start Generating Accounts';
       }
-    }
-
-    function copyText(id) {
-      const textToCopy = document.getElementById(id).textContent;
-      navigator.clipboard.writeText(textToCopy).then(() => {
-        alert('Text copied to clipboard!');
-      }).catch(err => {
-        console.error('Failed to copy text: ', err);
-      });
     }
   </script>
 
